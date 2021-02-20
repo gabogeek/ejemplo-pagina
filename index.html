@@ -11,13 +11,16 @@
             }
         </style>
 
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+         
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUhxqxR-LyYnblVSbprFTWN_S3pyV8FKY"></script>
         <script type="text/javascript">
             var map;
 
             function initialize() {
                 var options = {
-                    zoom: 15,
+                    zoom: 19,
                     center: new google.maps.LatLng(19.5076, -99.1316),
                     mapTypeId: google.maps.MapTypeId.SATELLITE
                 };
@@ -27,14 +30,13 @@
                 var bounds = {
                     15: [[7360, 7361], [14572, 14573]],
                     16: [[14721, 14722], [29145, 29146]],
-                    17: [[29442, 29444], [58290, 58293]],
-                    18: [[58884, 58888], [116581, 116586]],
-                    19: [[117768, 117777], [233163, 233173]]
+                    17: [[29442, 29444], [58290, 58293]]
                 };
 
+              /*Codigo para imagen*/
                 var imageMapType = new google.maps.ImageMapType({
                     getTileUrl: function(coord, zoom) {
-                        if (zoom < 15 || zoom > 19 ||
+                        if (zoom < 15 || zoom > 17 ||
                             bounds[zoom][0][0] > coord.x || coord.x > bounds[zoom][0][1] ||
                             bounds[zoom][1][0] > coord.y || coord.y > bounds[zoom][1][1]) {
                             return null;
@@ -44,7 +46,7 @@
                     },
                     tileSize: new google.maps.Size(256, 256)
                 });
-
+                /*fin codico para*/
                 map.overlayMapTypes.push(imageMapType);
             }
 
